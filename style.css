@@ -98,6 +98,24 @@ td:first-child {
   font-weight: bold;
 }
 
+.credit {
+  position: fixed;
+  bottom: 12px;
+  right: 16px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+
+/* subtle neon glow on hover (optional) */
+.credit:hover {
+  color: #c300ff;
+  text-shadow: 0 0 6px #c300ff;
+}
+
+
 /* Mobile */
 @media (max-width: 800px) {
   main {
