@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gus's Things</title>
+<link rel="stylesheet" href="../style.css">
+<link rel="icon" type="image/png" href="../Images/ADP_LogoT.png">
+</head>
+
+<body>
+  <nav class="navbar">
+     <div class="logo">
+        <img src="../Images/ADP_LogoT.png" alt="ADP Logo">
+        <img src="../Images/DDC_Graffiti_1.png" alt="DDC Logo">
+        
+    </div>
+
+    <ul class="nav-links">
+      <!--
+      <li class="dropdown">
+        <a href="#">Events Rooms ▾</a>
+        <ul class="dropdown-menu">
+        <li><a href="/eventsRooms/lounge.html">DDC Orgy Pit</a></li>
+        <li><a href="/eventsRooms/dungeon.html">DDC Warehouse</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Purple Vault</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Gus's Orgy Pit</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Moonvine Estate Rooftop</a></li>
+      </ul>
+      </li>
+        -->
+      <li class="dropdown">
+        <a href="#">Games ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="/games/dice.html">Selfless Dice Game</a></li>
+        </ul>
+      </li>
+
+    </ul>
+  </nav>
+  <div class="wrapper">
+  
+  
+
+  <header>
+    <h1>Selfless Dice Game</h1>
+    <button onclick="rollDice()">🎲</button>
+    <div id="result">Roll to begin</div>
+  </header>
+
+  <main>
+
+    <!-- RULES -->
+    <section class="panel">
+      <h2>Rules</h2>
+      <ul>
+        <li>Decide game duration before starting (ex: 20 min or 10 rounds)</li>
+        <li><strong>/roll100</strong> when it's your turn</li>
+        <li>The roller chooses <strong>who acts</strong>, not themselves</li>
+        <li>If something is not possible, use the fallback option, or Host veto</li>
+        <li>Respect everyone’s preferences & limits</li>
+        <li>If a player delays, Host skips to next player</li>
+        <li>Poses change <strong>only via dice actions</strong></li>
+        <li>Use Group/Local Chat to track rolls. Keep sex in PM</li>
+      </ul>
+    </section>
+
+    <!-- ROLL TABLE -->
+    <section class="panel">
+      <h2>Roll Table (1–100)</h2>
+
+      <table>
+        <tr>
+          <th>Roll</th>
+          <th>Name</th>
+          <th>Action</th>
+          <th>Fallback Action</th>
+        </tr>
+
+        <tr>
+          
+          <td>01–30</td>
+          <td>Form a couple</td>
+          <td>Pick 2 free players → form a couple</td>
+          <td>Free one player</td>
+        </tr>
+
+        <tr>
+          
+          <td>31–60</td>
+          <td>Change pose</td>
+          <td>Change pose of an existing couple/3some</td>
+          <td>Form a couple</td>
+        </tr>
+
+        <tr>
+          
+          <td>61–70</td>
+          <td>Swap partners</td>
+          <td>Swap partners between two couples/3some</td>
+          <td>Change pose <br><strong>OR </strong>Form a couple</td>
+        </tr>
+
+        
+
+        <tr>
+          
+          <td>71–80</td>
+          <td>Expand</td>
+          <td>Couple + free player → 3some</td>
+          <td>Swap partners<br><strong>OR </strong>Form a couple<br><strong>OR </strong>Change pose</td>
+        </tr>
+        
+        <tr>
+          
+          <td>81–90</td>
+          <td>Free one player</td>
+          <td>Free one player from a 3some</td>
+          <td>Expand<br><strong>OR </strong>Form a couple<br><strong>OR </strong>Change pose</td>
+        </tr>
+
+        <tr>
+          
+          <td>91–100</td>
+          <td>Roller chooses</td>
+          <td>Roller chooses any action</td>
+          <td>Host veto if it slows flow</td>
+        </tr>
+
+      </table>
+    </section>
+
+  </main>
+
+</div>
+
+<script src="../script.js"></script>
+<footer class="footer">
+  🔞 Adults only
+</footer>
+</body>
+</html>

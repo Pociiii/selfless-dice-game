@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gus's Thing</title>
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">
+        <div class="logo">
+        <img src="../Images/ADP_LogoT.png" alt="ADP Logo">
+        <img src="../Images/DDC_Graffiti_1.png" alt="DDC Logo">
+        
+    </div>
+        
+    </div>
+
+
+  <ul class="nav-links">
+
+    <li class="dropdown">
+      <a href="#">Events Rooms ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="/eventsRooms/lounge.html">DDC Orgy Pit</a></li>
+        <li><a href="/eventsRooms/dungeon.html">DDC Warehouse</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Purple Vault</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Gus's Orgy Pit</a></li>
+        <li><a href="/eventsRooms/dungeon.html">Moonvine Estate Rooftop</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Games ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="/games/ddcIndustry.html">DDC Industry</a></li>
+        <li><a href="/games/selflessDiceGame.html">Selfless Dice Game</a></li>
+      </ul>
+    </li>
+
+  </ul>
+</nav>
+
+<header>
+  <h1>DDC Industry</h1>
+  <p>Optimize pleasure device production.</p>
+</header>
+
+<main class="game-grid">
+
+  <div class="panel" id="productionPanel">
+    <h2>Production</h2>
+
+  <div class="bar">
+    <div id="progress"></div>
+  </div>
+
+  <p>Rate: <span id="rate">1</span> sex toy / <span id="cycleTime">10</span> sec</p>
+  <p>Production Cost: $<span id="prodCost">2</span></p>
+  <p>Inventory: <span id="inventory">0</span></p>
+  <button onclick="resetGame()" class="reset-btn">Start Over</button>
+
+  </div>
+
+    <div class="panel" id="storePanel">
+        <h2>Market</h2>
+
+        <p>Credits: $<span id="credits">100</span></p>
+        <p>Value per Sale: $<span id="saleValue">10</span></p>
+        <p>Demand: <span id="demand">Low</span></p>
+        <p>Items Sold: <span id="sold">0</span></p>
+
+    </div>
+
+    <div class="panel" id="logPanel">
+        <h2>Log</h2>
+        <div id="log" class="log-box"></div>
+    </div>
+
+
+  <div class="panel" id="upgradePanel">
+    <h2>Upgrades</h2>
+    <p>Automation and efficiency improvements will appear here.</p>
+  </div>
+
+</main>
+
+
+<footer class="footer">
+  🔞 Adults only
+</footer>
+
+<script src="../script.js"></script>
+<script src="../ddcIndustry.js"></script>
+
+</body>
+</html>
