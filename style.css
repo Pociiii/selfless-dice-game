@@ -203,6 +203,7 @@ a:hover {
 }
 
 .nav-right {
+  
   justify-self: end; 
   display: flex;
   align-items: center;
