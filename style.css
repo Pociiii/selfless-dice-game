@@ -61,11 +61,11 @@ h1, h2, .logo {
 }
 
 button {
-  background: #c300ff;
+  background: #5f017c;
   color: white;
   border: none;
   padding: 14px 28px;
-  font-size: 18px;
+  font-size: 15px;
   cursor: pointer;
   border-radius: 6px;
   margin-top: 10px;
