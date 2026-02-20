@@ -34,7 +34,7 @@ function getProductionCost() {
 }
 
 function getSellPrice() {
-  return getProductionCost() * 1.8;
+  return getProductionCost() * 1.55 * (1 + advertisingLevel * 0.002);
 }
 
 function getSellChance() {
@@ -46,11 +46,13 @@ function getSpeedCost() {
 }
 
 function getTierCost() {
-  return getProductionCost() * 5;
+  return getProductionCost() * 7;
 }
 
 function getDemand() {
-  return baseDemand * Math.pow(1.025, advertisingLevel);
+  return Math.min(95,
+    baseDemand * Math.pow(1.025, advertisingLevel)
+  );
 }
 
 function getLogisticsCost() {
@@ -66,7 +68,7 @@ function getGuaranteedOutput() {
 }
 
 function getBonusOutputChance() {
-  return tier * 0.5; // percent
+  return tier * 0.5 + speedLevel * 0.4;
 }
 
 function getGuaranteedSales() {
@@ -74,7 +76,7 @@ function getGuaranteedSales() {
 }
 
 function getBonusSaleChance() {
-  return advertisingLevel * 0.5; // % chance
+  return advertisingLevel * 0.35; // % chance
 }
 
 function getAdvertisingCost() {
@@ -82,7 +84,7 @@ function getAdvertisingCost() {
 }
 
 function getPrestigeGain() {
-  return Math.floor(Math.sqrt(lifetimeSold / 100));
+  return Math.floor(Math.sqrt(lifetimeSold / 50));
 }
 
 // ===== GAME LOOP =====
