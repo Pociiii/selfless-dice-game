@@ -5,7 +5,7 @@ let tier = 1;
 
 let speedLevel = 0;
 
-let baseProductionTime = 10;
+let baseProductionTime = 6;
 let productionTimer = 0;
 
 let inventory = 0;
@@ -14,7 +14,7 @@ let itemsSold = 0;
 let baseDemand = 30;
 
 let saleTimer = 0;
-let baseSaleInterval = 6;
+let baseSaleInterval = 4;
 
 let advertisingLevel = 0;
 let logisticsLevel = 0;
@@ -30,7 +30,7 @@ function getProductionCost() {
 }
 
 function getSellPrice() {
-  return getProductionCost() * 1.35;
+  return getProductionCost() * 1.45;
 }
 
 function getSellChance() {
