@@ -5,7 +5,7 @@ let tier = 1;
 
 let speedLevel = 0;
 
-let baseProductionTime = 5;
+let baseProductionTime = 10;
 let productionTimer = 0;
 
 let inventory = 0;
@@ -14,7 +14,7 @@ let itemsSold = 0;
 let baseDemand = 30;
 
 let saleTimer = 0;
-let baseSaleInterval = 3;
+let baseSaleInterval = 6;
 
 let advertisingLevel = 0;
 let logisticsLevel = 0;
