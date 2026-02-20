@@ -11,7 +11,7 @@ let productionTimer = 0;
 let inventory = 0;
 let itemsSold = 0;
 
-let baseDemand = 50;
+let baseDemand = 45;
 
 let saleTimer = 0;
 let baseSaleInterval = 4;
@@ -19,10 +19,14 @@ let baseSaleInterval = 4;
 let advertisingLevel = 0;
 let logisticsLevel = 0;
 
+let influence = 0;
+let lifetimeSold = 0;
+
 // ===== SIMPLE ECONOMY =====
 
 function getProductionTime() {
-  return baseProductionTime * Math.pow(0.96, speedLevel);
+  return baseProductionTime *
+    Math.pow(0.96, speedLevel) * Math.pow(0.98, influence);
 }
 
 function getProductionCost() {
@@ -68,6 +72,11 @@ function getBonusOutputChance() {
 function getAdvertisingCost() {
   return 100 * Math.pow(1.6, advertisingLevel);
 }
+
+function getPrestigeGain() {
+  return Math.floor(Math.sqrt(lifetimeSold / 100));
+}
+
 // ===== GAME LOOP =====
 
 function gameLoop(delta) {
@@ -111,6 +120,7 @@ function attemptSales() {
     inventory--;
     credits += getSellPrice();
     itemsSold++;
+    lifetimeSold++;
   }
 }
 
@@ -229,6 +239,10 @@ function updateUI() {
 
   document.getElementById("outputValue").innerText =
   getGuaranteedOutput() + " + " + getBonusOutputChance() + "%";
+
+  document.getElementById("influenceValue").innerText = influence;
+  document.getElementById("prestigeGain").innerText = getPrestigeGain();
+
 }
 
 function updateSaleProgressBar(percent) {
@@ -239,6 +253,26 @@ function updateSaleProgressBar(percent) {
 function updateProgressBar(percent) {
   let bar = document.getElementById("progressBar");
   bar.style.width = Math.min(percent, 100) + "%";
+}
+
+function prestigeReset() {
+
+  let gain = getPrestigeGain();
+  if (gain <= 0) return;
+
+  influence += gain;
+
+  // reset progress
+  credits = 1000;
+  tier = 1;
+  speedLevel = 0;
+  advertisingLevel = 0;
+  logisticsLevel = 0;
+  inventory = 0;
+  itemsSold = 0;
+  lifetimeSold = 0;
+
+  saveGame();
 }
 
 // ===== FORMATTERS =====
@@ -270,7 +304,9 @@ function saveGame() {
     inventory,
     itemsSold,
     advertisingLevel,
-    logisticsLevel
+    logisticsLevel,
+    influence,
+    lifetimeSold
   };
 
   localStorage.setItem("ddcIndustriesSave", JSON.stringify(saveData));
@@ -289,6 +325,8 @@ function loadGame() {
   itemsSold = data.itemsSold ?? 0;
   advertisingLevel = data.advertisingLevel ?? 0;
   logisticsLevel = data.logisticsLevel ?? 0;
+  influence = data.influence ?? 0;
+  lifetimeSold = data.lifetimeSold ?? 0;
 }
 
 function resetGame() {
