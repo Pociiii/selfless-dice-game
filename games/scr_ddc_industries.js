@@ -14,7 +14,7 @@ let itemsSold = 0;
 let baseDemand = 50;
 
 let saleTimer = 0;
-let baseSaleInterval = 3.5;
+let baseSaleInterval = 4;
 
 let advertisingLevel = 0;
 let logisticsLevel = 0;
