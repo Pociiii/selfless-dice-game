@@ -5,7 +5,7 @@ let tier = 1;
 
 let speedLevel = 0;
 
-let baseProductionTime = 6;
+let baseProductionTime = 7;
 let productionTimer = 0;
 
 let inventory = 0;
