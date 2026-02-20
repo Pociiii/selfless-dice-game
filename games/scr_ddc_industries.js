@@ -69,6 +69,14 @@ function getBonusOutputChance() {
   return tier * 0.5; // percent
 }
 
+function getGuaranteedSales() {
+  return 1 + Math.floor(advertisingLevel / 10);
+}
+
+function getBonusSaleChance() {
+  return advertisingLevel * 0.5; // % chance
+}
+
 function getAdvertisingCost() {
   return 100 * Math.pow(1.3, advertisingLevel);
 }
@@ -116,11 +124,28 @@ function gameLoop(delta) {
 function attemptSales() {
   if (inventory <= 0) return;
 
-  if (Math.random() < getSellChance()) {
-    inventory--;
-    credits += getSellPrice();
-    itemsSold++;
-    lifetimeSold++;
+  let attempts = getGuaranteedSales();
+
+  // bonus extra sale chance
+  if (Math.random() < getBonusSaleChance() / 100) {
+    attempts++;
+  }
+
+  let soldThisTick = 0;
+
+  for (let i = 0; i < attempts; i++) {
+    if (inventory <= 0) break;
+
+    if (Math.random() < getSellChance()) {
+      inventory--;
+      soldThisTick++;
+    }
+  }
+
+  if (soldThisTick > 0) {
+    credits += soldThisTick * getSellPrice();
+    itemsSold += soldThisTick;
+    lifetimeSold += soldThisTick;
   }
 }
 
@@ -242,6 +267,9 @@ function updateUI() {
 
   document.getElementById("influenceValue").innerText = influence;
   document.getElementById("prestigeGain").innerText = getPrestigeGain();
+
+  document.getElementById("saleCapacity").innerText =
+  getGuaranteedSales() + " + " + getBonusSaleChance() + "%";
 
 }
 
