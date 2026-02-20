@@ -42,7 +42,7 @@ function getSpeedCost() {
 }
 
 function getTierCost() {
-  return getProductionCost() * 3;
+  return getProductionCost() * 5;
 }
 
 function getDemand() {
@@ -50,7 +50,7 @@ function getDemand() {
 }
 
 function getLogisticsCost() {
-  return 400 * Math.pow(1.9, logisticsLevel);
+  return 200 * Math.pow(1.9, logisticsLevel);
 }
 
 function getSaleInterval() {
@@ -62,10 +62,12 @@ function getGuaranteedOutput() {
 }
 
 function getBonusOutputChance() {
-  return tier * 1; // percent
+  return tier * 0.5; // percent
 }
 
-
+function getAdvertisingCost() {
+  return 100 * Math.pow(1.6, advertisingLevel);
+}
 // ===== GAME LOOP =====
 
 function gameLoop(delta) {
@@ -161,9 +163,7 @@ function upgradeAdvertising() {
   }
 }
 
-function getAdvertisingCost() {
-  return 300 * Math.pow(1.6, advertisingLevel);
-}
+
 
 function upgradeLogistics() {
   let cost = getLogisticsCost();
