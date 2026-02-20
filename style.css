@@ -294,7 +294,7 @@ a:hover {
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 12px;
   margin-top: 10px;
-  max-width: 500px;
+  max-width: 550px;
   margin: 0 auto;
 }
 
@@ -310,7 +310,7 @@ a:hover {
 .archive-item h3 {
   margin-bottom: 6px;
   color: #ff4dff;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 .archive-item a {
