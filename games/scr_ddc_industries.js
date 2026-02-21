@@ -46,7 +46,7 @@ function getBaseProductionValue() {
 function getProductionCost() {
   return Math.round(
     getBaseProductionValue() *
-    Math.pow(0.995, efficiencyLevel)
+    Math.pow(0.99, efficiencyLevel)
   );
 }
 
@@ -301,7 +301,7 @@ function updateUI() {
   document.getElementById("prodTime").innerText =
     getProductionTime().toFixed(2);
 
-  let reduction = 1 - Math.pow(0.995, efficiencyLevel);
+  let reduction = 1 - Math.pow(0.99, efficiencyLevel);
   document.getElementById("efficiencyValue").innerText =   
   (reduction * 100).toFixed(1) + "%";
 
