@@ -361,6 +361,7 @@ function prestigeReset() {
   // reset progress
   credits = 1000;
   speedLevel = 0;
+  efficiencyLevel = 0;  
   advertisingLevel = 0;
   logisticsLevel = 0;
   inventory = 0;
