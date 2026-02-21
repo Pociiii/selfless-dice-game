@@ -40,7 +40,7 @@ function getProductionTime() {
 }
 
 function getBaseProductionValue() {
-  return 50 * Math.pow(1.12, speedLevel + influence);
+  return 50 * Math.pow(1.12, speedLevel);
 }
 
 function getProductionCost() {
@@ -112,6 +112,10 @@ function getPrestigeGain() {
   return Math.floor(Math.sqrt(lifetimeSold / 50));
 }
 
+function getInfluenceGain() {
+  return getPrestigeGain() - influence;
+}
+
 // ===== GAME LOOP =====
 
 function gameLoop(delta) {
@@ -134,16 +138,14 @@ function gameLoop(delta) {
       inventory += produced;
 
     }
-    progressBar.classList.add("complete");
-    setTimeout(() => progressBar.classList.remove("complete"), 150);
+    document.getElementById("progressBar").classList.add("complete");
   }
 
   saleTimer += delta;
 
   if (saleTimer >= getSaleInterval()) {
     attemptSales();
-    progressBar.classList.add("complete");
-    setTimeout(() => progressBar.classList.remove("complete"), 150);
+    document.getElementById("saleProgressBar").classList.add("complete");
     saleTimer = 0;
   }
 
@@ -321,6 +323,9 @@ function updateUI() {
   document.getElementById("nextInfluence").innerText =
   formatNumber(Math.max(0, nextTarget - lifetimeSold));
 
+  const gain = getInfluenceGain();
+
+document.getElementById("prestigeBtn").disabled = gain <= 0;
   const effBtn = document.getElementById("efficiencyBtn");
   const spdBtn = document.getElementById("speedBtn");
   const demBtn = document.getElementById("demandBtn");
@@ -353,8 +358,11 @@ function updateProgressBar(percent) {
 
 function prestigeReset() {
 
-  let gain = getPrestigeGain();
-  if (gain <= 0) return;
+  const gain = getInfluenceGain();
+
+  if (gain <= 0) {
+    return; // prevent useless reset
+  }
 
   influence += gain;
 
@@ -441,6 +449,7 @@ function resetGame() {
   lifetimeSold = 0;
   saveGame();
 }
+
 
 function flashStat(id) {
   const el = document.getElementById(id);
