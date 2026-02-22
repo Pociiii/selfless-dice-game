@@ -66,7 +66,7 @@ function getSellChance() {
 }
 
 function getSpeedCost() {
-  return 50 * Math.pow(1.85, speedLevel);
+  return 50 * Math.pow(1.7, speedLevel);
 }
 
 function getEfficiencyCost() {
