@@ -52,7 +52,7 @@ function getProductionCost() {
 
 function getSellPrice() {
   return Math.round(
-    getBaseProductionValue() * 1.55 *
+    getBaseProductionValue() * 1.75 *
     (1 + advertisingLevel * 0.002) *
     (1 + influence * 0.003)
   );
