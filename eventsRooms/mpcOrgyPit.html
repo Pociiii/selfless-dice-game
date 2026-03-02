@@ -11,7 +11,7 @@
 <meta property="og:title" content="Gus's Side Activities">
 <meta property="og:description" content="Explore the rooms. Play the games. Have fun.">
 <meta property="og:image" content="https://pociiii.github.io/Gus-Side-Activities/Images/ADP_LogoT.png">
-<meta property="og:url" content="https://pociiii.github.io/Gus-Side-Activities/games/strip.html">
+<meta property="og:url" content="https://pociiii.github.io/Gus-Side-Activities/eventsRooms/mpcOrgyPit.html">
 <meta property="og:type" content="website">
 
 <!-- Optional theme color -->
@@ -19,7 +19,7 @@
 </head>
 
 <body>
-  <nav class="navbar">
+    <nav class="navbar">
         <div class="logo">
             <a href="https://discord.gg/vmM9fVwe9V " target="_blank">
                 <img src="../Images/ADP_LogoT.png" alt="ADP Logo">
@@ -47,81 +47,61 @@
                 <li><a href="../games/strip.html">Strip Game</a></li>
                 </ul>
             </li>
-            
             <li class="dropdown">
             <a href="../games/ddcIndustries.html">DDC Industries</a>
-        </li>
-        
+            </li>
         </ul>
         <div class="nav-right logo">
                  <img src="../Images/DDC_Graffiti_1.png" alt="DDC Logo">
         </div>
     </nav>
-
-  <div class="wrapper">
   
-  <header>
-    <h1>Strip Game</h1>
-  </header>
+    <header>
+        <h1>MPC Orgy Pit</h1>
+        <p>
+            A glowing, central pit where energy rises and connections deepen under midnight lights.
+        </p>
+    </header>
 
-  <main>
-
-    <!-- RULES -->
-    <section class="panel">
-      <h2>Rules</h2>
-      <ul>
-        <li>Everyone start with 4 pieces of clothing, and can only have max 4 pieces</li>
-        <li>Stand in circle</li>
-        <li><strong>/roll6</strong> when it's your turn</li>
-        <li>Use the outcome table to determine your action</li>
-        <li>Once a player is naked, they dance in the middle of the circle</li>
-      </ul>
+    <!-- PREVIEW -->
+    <section class="room-preview">
+        <div class="preview-images">
+            <img src="../Images/MPCOrgyPit_1.png" data-full="../Images/MPCOrgyPit_1.png" alt="MPC Orgy Pit Image 1">
+            <img src="../Images/MPCOrgyPit_2.png" data-full="../Images/MPCOrgyPit_2.png" alt="MPC Orgy Pit Image 1">
+            <img src="../Images/MPCOrgyPit_3.png" data-full="../Images/MPCOrgyPit_3.png" alt="MPC Orgy Pit Image 1">
+            <img src="../Images/MPCOrgyPit_4.png" data-full="../Images/MPCOrgyPit_4.png" alt="MPC Orgy Pit Image 1">
+        </div>
     </section>
 
-    <!-- ROLL TABLE -->
-    <section class="panel">
-      <h2>Outcome</h2>
+    <!-- ARCHIVE -->
+    <section class="event-archive">
+        <header><h2>Archive</h2></header>
 
-      <table>
-        <tr>
-          <th>Roll</th>
-          <th>Action</th>
-        </tr>
+        <div class="archive-grid">
+            
+        </div>
 
-        <tr>
-          <td>1</td>
-          <td>Remove one item of clothing on yourself and show off</td>
-        </tr>
-
-        <tr>
-          <td>2</td>
-          <td>Remove clothing from player on your right, and tease them</td>
-        </tr>
-
-        <tr>
-          <td>3</td>
-          <td>Remove clothing from player on your left, and tease them</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>Swap 2 other player positions</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>Swap positions with someone else</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>Add clothing on yourself and flex</td>
-        </tr>
-      </table>
     </section>
-
-  </main>
-
-</div>
 
 <script src="../script.js"></script>
+<div id="lightbox">
+        <img id="lightbox-img">
+    </div>
 
+    <script>
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        document.querySelectorAll(".preview-images img").forEach(img => {
+        img.addEventListener("click", () => {
+            lightbox.style.display = "flex";
+            lightboxImg.src = img.dataset.full || img.src;
+        });
+        });
+
+        lightbox.addEventListener("click", () => {
+        lightbox.style.display = "none";
+        });
+    </script>
 </body>
 </html>
